@@ -1,14 +1,54 @@
-<ion-header>
+<ion-header color="danger">
   <ion-toolbar>
-    <ion-title>
-      Ionic Blank
+    <ion-title text-center>
+      Jobs
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list>
+  <ion-item *ngFor="let item of listTitle">
+    {{ item }}
+  </ion-item>
+</ion-list>
+
+  
+  <div *ngFor="let job of listJobs">
+    <ion-card>
+      <ion-item>
+        <ion-avatar  item-start>
+          <img style="width:500%;" src={{job.company_logo}}>
+        </ion-avatar>
+
+        <ion-title text-center>
+          <h6 text-center>{{job.company}} <br>  <small>{{job.created_at}}</small></h6>
+        </ion-title>
+
+       
+        
+      </ion-item>
+      <ion-card-content>
+        <h1>{{job.title}}</h1>
+       <small>{{job.location}}</small> 
+       <div [innerHTML]="job.description.substring(0, 250)"></div>.....
+      </ion-card-content>
+      <ion-row>
+        <ion-col>
+
+        </ion-col>
+        <ion-col>
+
+        </ion-col>
+        <ion-col item-end>
+          <ion-button color="danger" (click)="showInfo(job.id)" >View Job</ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-card>
   </div>
+
+
 </ion-content>

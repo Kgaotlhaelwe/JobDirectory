@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>JobInfo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <img src={{moreInfo.company_logo}}/>
+    <ion-card-content>
+      <ion-card-title>
+       {{moreInfo.title}}
+        </ion-card-title>
+        <small>{{moreInfo.company}}</small>
+     
+      <div [innerHTML]="moreInfo.description"></div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
